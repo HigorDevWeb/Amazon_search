@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Product Search</title>
+    <style>
+        /* Estilo para o corpo da página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #232f3e; /* Cor de fundo inspirada na Amazon */
+            color: white; /* Cor do texto */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Altura total da viewport */
+        }
+        
+        /* Estilo para o cabeçalho */
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        /* Estilo para o formulário de pesquisa */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #ffffff; /* Cor de fundo do formulário */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+        
+        /* Estilo para o logo da Amazon */
+        .amazon-logo {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        
+        /* Estilo para o campo de pesquisa */
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        
+        /* Estilo para o botão de pesquisa */
+        button {
+            background-color: #ff9900; /* Cor laranja da Amazon */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #e68a00; /* Cor laranja mais escura ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho da página com o logo e título -->
+    <header>
+        <img src="amazon_logo.png" alt="Amazon Logo" class="amazon-logo"> <!-- Logo da Amazon -->
+        <h1>Amazon Product Search</h1> <!-- Título da página -->
+    </header>
+    
+    <!-- Formulário de pesquisa -->
+    <form action="{{ url_for('search') }}" method="post">
+        <input type="text" name="query" placeholder="Enter product name"> <!-- Campo de texto para inserir o termo de busca -->
+        <button type="submit">Search</button> <!-- Botão para enviar o formulário de busca -->
+    </form>
+</body>
+</html>

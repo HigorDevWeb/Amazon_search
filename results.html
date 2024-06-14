@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <style>
+        /* Estilos para o cabeçalho h1 */
+        h1 {
+            text-align: center; /* Alinha o texto centralmente */
+        }
+        a{
+            text-align: center;
+        }
+        /* Estilos para a tabela */
+        table {
+            width: 100%; /* A largura da tabela ocupa 100% do seu container */
+            border-collapse: collapse; /* Remove o espaçamento entre as células */
+        }
+        
+        /* Estilos para células de cabeçalho (th) e células normais (td) */
+        th,
+        td {
+            border: 1px solid black; /* Borda de 1px sólida preta em th e td */
+            padding: 8px; /* Espaçamento interno de 8px */
+            text-align: left; /* Alinha o texto à esquerda dentro das células */
+        }
+        
+        /* Estilo para células de cabeçalho (th) */
+        th {
+            background-color: #f2f2f2; /* Fundo cinza claro */
+        }
+        
+        /* Estilos para imagens dentro da tabela */
+        img {
+            max-width: 100px; /* Largura máxima da imagem de 100px */
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Results</h1> <!-- Título centralizado -->
+    <a href="{{ url_for('index') }}">New Search</a> <!-- Link para nova pesquisa -->
+    <table>
+        <tr>
+            <th>Title</th> <!-- Cabeçalho da coluna Título -->
+            <th>Price</th> <!-- Cabeçalho da coluna Preço -->
+            <th>Link</th> <!-- Cabeçalho da coluna Link -->
+            <th>Image</th> <!-- Cabeçalho da coluna Imagem -->
+        </tr>
+        {% for product in products %} <!-- Loop para cada produto na lista -->
+        <tr>
+            <td>{{ product.title }}</td> <!-- Coluna com o título do produto -->
+            <td>{{ product.price }}</td> <!-- Coluna com o preço do produto -->
+            <td><a href="{{ product.link }}" target="_blank">Product Link</a></td> <!-- Coluna com o link do produto (abre em nova aba) -->
+            <td><img src="{{ product.img }}" alt="Product Image" /></td> <!-- Coluna com a imagem do produto -->
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
